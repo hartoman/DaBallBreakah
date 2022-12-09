@@ -1,0 +1,434 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: lawngreen;
+
+    /* Press Start 2P is custom font must be imported in the head of the html that uses it */
+    font-family: "Press Start 2P", "consolas", sans-serif;
+    align-items: center;
+    max-height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+
+}
+
+
+.contentContainer {
+    font-size: 0;
+    max-height: 95vh;
+}
+
+.titlePart {
+
+    color: aqua;
+    text-shadow: 2px -2px blue;
+    border-style: solid;
+    border-width: 5px;
+    border-color: gold;
+    background-color: indigo;
+    font-size: xx-large;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    /* so that contents do not spill out*/
+    text-align: center;
+
+}
+
+.infoScreen {
+    background-color: indigo;
+    position: fixed;
+    visibility: visible;
+    border-style: outset;
+    text-align: center;
+    border-width: 5px;
+    border-color: gold;
+    border-radius: 10px;
+    text-shadow: 3px -3px darkslategray;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    z-index: 1;
+}
+
+.infoButton {
+    color: lawngreen;
+    background-color: blue;
+    border-style: outset;
+    padding: 0px;
+    text-align: center;
+    font-size: medium;
+    line-height: 6vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    border-radius: 10%;
+    cursor: pointer;
+}
+
+.actionButton {
+    min-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#restartButton {
+    background-color: darkred;
+    color: yellow;
+}
+
+.topPart {
+    background-color: rebeccapurple;
+    text-align: center;
+    border-style: solid;
+    border-width: 5px;
+    border-color: gold;
+    text-shadow: 3px -3px darkslategray;
+}
+
+.bottomPart {
+    background-color: rebeccapurple;
+    text-align: center;
+    /*justify-content: space-around;*/
+    border-style: solid;
+    border-width: 5px;
+    border-color: gold;
+    text-shadow: 3px -3px darkslategray;
+
+}
+
+.middlePart {
+
+    width: 40%;
+    min-height: 75vh;
+    display: inline-block;
+    flex-wrap: wrap;
+    font-size: small;
+    border-style: solid;
+    border-width: 1vh;
+    border-color: gold;
+    overflow: hidden;
+}
+
+/******************************************************************************/
+
+.tileRow {
+    display: flex;
+    flex-wrap: initial;
+    width: 100%;
+    height: 6vh;
+}
+
+.Tile {
+
+    height: 6vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    line-height: 4vh;
+    text-align: center;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    flex: 1;
+}
+
+.basicTile {
+    color: whitesmoke;
+}
+
+.emptyTile {
+    color: transparent;
+}
+
+.powerUpTile {
+    color: whitesmoke;
+    animation: 0.5s linear 0s infinite running movingRainbow;
+}
+
+.fireTile {
+    animation: 0.75s linear 0s infinite running fiery;
+}
+
+/******************************************************************************/
+.ball {
+    height: 3vh;
+    width: 3vh;
+    border-radius: 50%;
+
+}
+
+.normalBall {
+    background-image: radial-gradient(closest-corner at 35% 35%, white, gray);
+}
+
+.fireBall {
+    height: 3vh;
+    width: 3vh;
+    border-radius: 50%;
+    animation: 0.75s linear 0s infinite running fiery;
+}
+
+.ballPoweringUp {
+    height: 3vh;
+    width: 3vh;
+    border-radius: 50%;
+    animation: 0.5s linear 0s infinite running rainbow;
+}
+
+#theBall {
+    position: absolute;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.daCanvas {
+
+    display: inline-block;
+    position: absolute;
+    background-color: transparent;
+    min-height: 74vh;
+}
+
+/* for mobile phones*/
+@media only screen and (orientation: portrait) {
+    .titlePart {
+        height: 8vh;
+        font-size: medium;
+        line-height: 6vh;
+    }
+
+    .infoButton {
+
+        line-height: 4vh;
+        width: 6vh;
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+    }
+
+    .infoScreen {
+        font-size: x-small;
+        width: 96vw;
+        top: 18vh;
+        height: 76vh;
+    }
+
+    .contentContainer {
+        display: block;
+
+    }
+
+    .daCanvas {
+        width: 92%;
+        top: 15%;
+    }
+
+    .middlePart {
+        width: 100%;
+    }
+
+    .topPart {
+        width: 100%;
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        font-size: x-small;
+        text-align: center;
+    }
+
+    .bottomPart {
+        font-size: xx-small;
+        width: 100%;
+        height: 8vh;
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: space-around;
+        text-align: center;
+
+    }
+}
+
+/*for tablets and desktop */
+@media only screen and (orientation: landscape) {
+    /* for mobile phones side-ways*/
+    @media (max-height:400px) {
+        * {
+            font-size: x-small;
+        }
+        .titlePart {
+            height: 2vh;
+            font-size: medium;
+            line-height: 1vh;
+            border-radius: 5px
+        }
+        .Tile{
+            font-size: xx-small;
+            border-radius: 25%;
+        }
+        .infoScreen {
+            font-size: xx-small;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content:flex-start;
+            flex-wrap: nowrap;
+            text-shadow: none;
+            height: 88vh;
+        }
+        .infoButton {
+            line-height: 3vh;
+            width: 16vh;
+            
+        }
+        .actionButton {
+            min-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+     }
+
+    .titlePart {
+        height: 10vh;
+        line-height: 8vh;
+        border-radius: 10px
+    }
+
+    .infoButton {
+        line-height: 6vh;
+        width: 8vh;
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+    }
+
+    .infoScreen {
+
+        top: 11vh;
+        left: 25vw;
+        height: 85vh;
+        width: 50%;
+
+    }
+
+    .contentContainer {
+        height: 85vh;
+        display: flex;
+    }
+
+    .daCanvas {
+        top: 12vh;
+        height: 83%;
+        width: 48%;
+    }
+
+    .middlePart {
+        height: 85vh;
+        width: 50%;
+        display: inline-block;
+        border-radius: 10px
+    }
+
+    .topPart {
+
+        width: 25%;
+        font-size: x-large;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .bottomPart {
+
+        width: 25%;
+        border-radius: 10px;
+        font-size: x-large;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}
+
+/******************************************************************************/
+
+@keyframes fiery {
+
+    0% {
+        background: radial-gradient(closest-side at 50% 50%, orange, red)
+    }
+
+    20% {
+        background: radial-gradient(closest-side at 50% 50%, yellow, orange, red)
+    }
+
+    40% {
+        background: radial-gradient(closest-side at 50% 50%, orange, darkorange, red)
+    }
+
+    60% {
+        background: radial-gradient(closest-side at 50% 50%, orange, darkorange, red)
+    }
+
+    80% {
+        background: radial-gradient(closest-side at 50% 50%, yellow, orange, red)
+    }
+
+    100% {
+        background: radial-gradient(closest-side at 50% 50%, orange, red)
+    }
+
+}
+
+@keyframes rainbow {
+    0% {
+        background-color: red;
+    }
+
+    20% {
+        background-color: orange;
+    }
+
+    40% {
+        background-color: yellow;
+    }
+
+    60% {
+        background-color: green;
+    }
+
+    80% {
+        background-color: blue;
+    }
+
+    100% {
+        background-color: purple;
+    }
+}
+
+@keyframes movingRainbow {
+    0% {
+        background: linear-gradient(to right, red, orange, yellow, green, blue, purple)
+    }
+
+    20% {
+        background: linear-gradient(to right, purple, red, orange, yellow, green, blue)
+    }
+
+    40% {
+        background: linear-gradient(to right, blue, purple, red, orange, yellow, green)
+    }
+
+    60% {
+        background: linear-gradient(to right, green, blue, purple, red, orange, yellow)
+    }
+
+    80% {
+        background: linear-gradient(to right, yellow, green, blue, purple, red, orange)
+    }
+
+    100% {
+        background: linear-gradient(to right, orange, yellow, green, blue, purple, red)
+    }
+}

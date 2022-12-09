@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Chris">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DaBallBreakah</title>
+
+    <!-- connects with css file-->
+    <link rel="stylesheet" href="ballStyle.css">
+
+    <!-- import custom font that is mentioned in the css file (relationship stylesheet)-->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+    <div class="titlePart">
+        <button class="infoButton" id="infoButton">Info</button>
+        Da BallBreakah
+        <button class="infoButton" id="helpButton">Help</button>
+    </div>
+    <div class="infoScreen" id="showInfo" style="visibility:hidden" >
+        <p>Da BallBreakah v1.00</p>
+        <p>a game by</p>
+        <p>Christos Chartomatsidis</p>
+        <p>2022</p>
+        <p>For comments and bug reports<br>drop me a line at</p>
+        <p>hartoman@gmail.com</p>
+   <!--     <button class="infoButton actionButton" id="sendEmailButton" onclick="location.href='mailto:hartoman@gmail.com';"> Send Email</button> -->
+        <p>Click anywhere to return to game</p>
+    </div>
+    <div class="infoScreen" id="showHelp" style="visibility:hidden">
+        <p>Destroy all tiles to reach next level.</p>
+        <p>When the ball is on the floor, the game is paused. Aim with the laser and shoot.</p>
+        <p>The ball does damage equal to its power.</p>
+        <p>More ricochets = stronger ball.<br>Special tiles give power-ups.</p>
+        <p>If the tiles reach the floor, you lose.<br>You can try again on the same level.<br>Progress is automatically saved. </p>
+        <p>If you wish to start all over, click here:</p>
+        <button class="infoButton actionButton" id="restartButton"> Delete All Progress!</button>
+        <p>Click anywhere to return to game</p>
+
+        </div>
+    <div class="contentContainer">
+        <div class="topPart">
+            <p id="newGame">NEW GAME</p>
+            <p id="click2Start">click to start</p>
+            <div>
+                <p>Score</h5>
+                <p id="scoreLabel"> 0</h5>
+            </div>
+
+        </div>
+        <div class="middlePart">
+            <canvas class="daCanvas"></canvas>
+            <div class="ball normalBall" id="theBall"></div>
+        </div>
+  
+        <div class="bottomPart">
+            <div>
+                <p>Level</p>
+                <p id="levelLabel"> 1</p>
+            </div>
+            <div>
+                <p>Lines Left</p>
+                <p id="linesLeftLabel"> 0</p>
+            </div>
+            <div>
+                <p>Ball Power</p>
+                <p id="ballPowerLabel"> 0</p>
+            </div>
+            <div>
+                <p>Ricochet</p>
+                <p id="ricochetLabel"> 0</p>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    </div>
+
+
+
+
+    <script src="index.js"></script>
+</body>
+
+</html>
